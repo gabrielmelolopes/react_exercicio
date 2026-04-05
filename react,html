@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<style>
+    .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const produtos = [
+            { nome: "Notebook", descricao: "Eletrônico" },
+            { nome: "Mouse", descricao: "Acessório" },
+            { nome: "Teclado", descricao: "Periférico" }
+        ];
+        const Card = (props) => {
+            return (
+                <div>
+                    <h3>{props.nome}</h3>
+                    <p>{props.descricao}</p>
+                </div>
+            );
+        };
+
+        const App = () => {
+            const produtos = [
+                { nome: "Notebook", descricao: "Eletrônico" },
+                { nome: "Mouse", descricao: "Acessório" },
+                { nome: "Teclado", descricao: "Periférico" }
+            ];
+            return (
+                <div>
+                    {produtos.map((produto, index) => (
+                        <Card
+                            key={index}
+                            nome={produto.nome}
+                            descricao={produto.descricao}
+                        />
+                    ))}
+                </div>
+            );
+        };
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+</body>
+
+</html>
